@@ -1,0 +1,419 @@
+
+/* Landon Stucki */
+/*6-20-2025*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+  background-color: #fafafa;
+  color: #222;
+}
+
+/* -----------------------------------------
+   Preview Toolbox Container
+----------------------------------------- */
+.preview-toolbox {
+  display: flex;
+  flex-direction: row;
+  margin: 2% auto;
+  border: 2px solid #000;
+  height: 85vh;
+  width: 90vw;
+  max-width: 1200px;
+}
+
+/* constrain the preview container */
+.preview-image-container {
+  position: relative;
+  width: 300px;       /* choose whatever max width you need */
+  height: auto;
+  overflow: hidden;   /* hide any overflow if it still ends up a bit large */
+}
+
+/* make the bottle image scale to fit */
+.preview-image-container img {
+  width: 100%;        /* fill the container’s width */
+  height: auto;       /* keep aspect ratio */
+  object-fit: contain;/* ensure the whole bottle stays visible */
+}
+/* -----------------------------------------
+   Left & Right Panels
+----------------------------------------- */
+.left-panel,
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+/* -----------------------------------------
+   Left Panel
+----------------------------------------- */
+.left-panel {
+  justify-content: space-between;
+  border: 2px solid #000;
+  margin: 1%;
+  width: 35%;
+  background-color: #ddd;
+}
+
+/* -----------------------------------------
+   Product Header
+----------------------------------------- */
+.product-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  padding: 8px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* -----------------------------------------
+   Product Preview ("white spot")
+----------------------------------------- */
+.product-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* -----------------------------------------
+   Bottle Container (image + overlays)
+----------------------------------------- */
+.preview-image-container {
+  position: relative;
+  width: clamp(200px, 30vw, 350px);
+  aspect-ratio: 1 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -----------------------------------------
+   Base Bottle Image
+----------------------------------------- */
+#bottle-image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* -----------------------------------------
+   Overlay Text + Image Styles
+----------------------------------------- */
+.overlay-text,
+.overlay-img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* -----------------------------------------
+   Line 1 Text
+----------------------------------------- */
+.line1-text {
+  top: 40%;
+  font-size: clamp(14px, 3vw, 24px);
+  color: #000;
+  font-weight: bold;
+}
+
+/* -----------------------------------------
+   Overlay Icon
+----------------------------------------- */
+.overlay-img {
+  top: 48%;
+  width: clamp(40px, 20%, 100px);
+  height: clamp(40px, 20%, 100px);
+}
+.overlay-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* -----------------------------------------
+   Line 2 Text
+----------------------------------------- */
+.line2-text {
+  top: 65%;
+  font-size: clamp(14px, 3vw, 24px);
+  color: #000;
+  font-weight: bold;
+}
+
+/* -----------------------------------------
+   Cart & Upload Buttons
+----------------------------------------- */
+.cart-item {
+  margin-top:10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.cart-item h3{
+  text-align: center;
+  align-content: center;
+  padding:10px;
+  font-size:12px;
+}
+.cart-item button {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* -----------------------------------------
+   Right Panel
+----------------------------------------- */
+.right-panel {
+  border: 2px solid #000;
+  margin: 1%;
+  width: 60%;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+/* -----------------------------------------
+   Text Creator Header
+----------------------------------------- */
+.text-creator-header h1 {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* -----------------------------------------
+   Text Selector Grid
+----------------------------------------- */
+.text-selector {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 8px 12px;
+  border: 1px solid #333;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.text-selector .label {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.text-selector select,
+.text-selector input {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 1rem;
+}
+
+/* -----------------------------------------
+   Library Selector
+----------------------------------------- */
+.library-header h1 {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.library-selector {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 5px;
+  height: 60px;
+  background-color: #eee;
+}
+.library-box {
+  flex: 0 0 auto;
+  min-width: 80px;
+  height: 40px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: background-color .15s;
+}
+.library-box:hover {
+  background-color: #e8e8e8;
+}
+.library-box.selected {
+  border: 2px solid #333;
+  background-color: #d0d0d0;
+}
+
+/* -----------------------------------------
+   Template Browser
+----------------------------------------- */
+.upload-button,
+.finalize-item {
+  padding-right:10px;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+.upload-button button,
+.finalize-item button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.template-browser {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 8px;
+  padding: 5px;
+  border: .5px solid #000;
+  max-height: 30vh;
+  overflow-y: auto;
+}
+.template-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  background-color: #fff;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border .2s;
+}
+.template-button:hover {
+  border-color: #555;
+}
+.template-button img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+
+/* --- TOOLBOX & PANELS --- */
+.preview-toolbox {
+  display: flex;
+  flex-direction: row;
+  margin: 2% auto;
+  border: 2px solid #000;
+  height: 85vh;
+  width: 100%;
+}
+
+.left-panel,
+.right-panel {
+  flex: 1;
+  padding: 16px;
+}
+
+/* --- PREVIEW IMAGE --- */
+.preview-image-container {
+  position: relative;
+  width: 300px;      /* adjust as needed */
+  height: auto;
+  overflow: hidden;
+}
+
+.preview-image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* --- CHECKOUT ITEM LIST --- */
+.checkout-list {
+  max-height: 120px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* --- FEE NOTES --- */
+.fee-note {
+  color: green;
+  font-size: 0.85em;
+  margin-top: 2px;
+}
+
+.overlay-fee {
+  color: green;
+  font-size: 0.85em;
+  text-align: center;
+  padding-top: 4px;
+}
+
+/* --- FINALIZE BUTTON --- */
+.btn-finalize {
+  display:block;
+  padding: 4px 8px;
+  background: #c1eac1;
+  font-size: 0.75em;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  line-height: 1.2em;
+  justify-content: center;
+  margin:10px auto;
+}
+
+/* --- FOOTER --- */
+.preview-footer {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.preview-footer .check-cart {
+  margin-left: 8px;
+}
+
+/* -----------------------------------------
+   Responsive (≤768px)
+----------------------------------------- */
+@media (max-width: 768px) {
+  .preview-toolbox {
+    flex-direction: column;
+    width: 95vw;
+    height: auto;
+    margin: 1rem auto;
+  }
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    margin: .5rem 0;
+  }
+  .product-preview {
+    min-height: 200px;
+  }
+  .text-selector {
+    grid-template-columns: auto 1fr;
+  }
+  .text-selector .dropdown,
+  .text-selector .input {
+    grid-column: 2;
+    margin-bottom: 8px;
+  }
+  .library-selector {
+    height: 60px;
+  }
+  .template-browser {
+    grid-template-columns: repeat(2,1fr);
+    max-height: 200px;
+  }
+  .finalize-item button {
+    width: 50%;
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+}
