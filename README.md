@@ -33,18 +33,18 @@ additional - Github Desktop (GUI for easy VCS access)
 - JSX
 
 # How to Run:
-Step 1. Right click open entire folder with IDE (Visual Studio Code).
-Step 2. Navigate to terminal > new terminal
-Step 3. MAKE SURE NODE IS INSTALLED
-Step 4. Set path to preview-tool-react (type 'cd preview-tool-react')
-Step 5. Type: 'npm run dev' into the terminal
-Step 6. ctrl click on local host to bring up webpage.
+- Step 1. Right click open entire folder with IDE (Visual Studio Code).
+- Step 2. Navigate to terminal > new terminal
+- Step 3. MAKE SURE NODE IS INSTALLED
+- Step 4. Set path to preview-tool-react (type 'cd preview-tool-react')
+- Step 5. Type: 'npm run dev' into the terminal
+- Step 6. ctrl click on local host to bring up webpage.
 
 # Useful Websites
-* [Web Site Name](https://www.w3schools.com/js/)
-* [Web Site Name](ChatGpt.Com)
-* [Web Site Name](https://www.w3schools.com/react/react_jsx.asp)
-* [Web Site Name](https://react.dev/learn)
+* [W3Schools JavaScript](https://www.w3schools.com/js/)
+* [OpenAI](ChatGpt.Com)
+* [W3Schools React](https://www.w3schools.com/react/react_jsx.asp)
+* [React Developer](https://react.dev/learn)
 
 # Future Work
 
