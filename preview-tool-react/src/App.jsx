@@ -266,7 +266,7 @@ export default function App() {
       {/* FOOTER: checkout total & check cart button */}
       <div className="preview-footer">
         <button>
-          Total Checkout (${cart.reduce((sum, item) => sum + item.price, 0)})
+          Total  (${cart.reduce((sum, item) => sum + item.price, 0)})
         </button>
         <button onClick={handleCheckCart} className="check-cart">Check Cart</button>
       </div>
